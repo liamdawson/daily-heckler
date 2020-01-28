@@ -1,26 +1,28 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Teams } from './teams';
-import Team from './Team';
-import TeamSelector from './TeamSelector';
 import moment from 'moment';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { TeamNav } from './components';
+import TeamPage from './TeamPage';
 
 const App: React.FC = () => {
-  let [selectedTeamIndex, setSelectedTeamIndex] = useState(0);
   let [selectedDate, setSelectedDate] = useState(new Date());
 
   return (
     <div className="App">
-      <TeamSelector
-        teams={Teams}
-        selectedDate={selectedDate}
-        selectedTeamIndex={selectedTeamIndex}
-        onSelectedTeamIndexChanged={setSelectedTeamIndex}
-        onSelectedDateChanged={setSelectedDate} />
+      <Router>
+        <Switch>
+          <Route path="/:teamId">
+            <TeamPage
+              teams={Teams}
+              dayNumber={moment(selectedDate).dayOfYear()} />
+          </Route>
+        </Switch>
 
-      <Team
-        team={Teams[selectedTeamIndex]}
-        dayNumber={moment(selectedDate).dayOfYear()} />
+        <TeamNav
+          teams={Teams} />
+      </Router>
     </div>
   );
 }
