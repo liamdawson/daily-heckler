@@ -1,8 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Team } from './teams';
-import TeamHeader from './TeamHeader';
-import TeamOrder from './TeamOrder';
+import { TeamHeader, TeamOrder } from './components';
 
 interface IProps {
   teams: Array<Team>;

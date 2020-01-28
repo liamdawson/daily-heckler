@@ -7,20 +7,9 @@ interface IProps {
 }
 
 export const TeamNav: React.FC<IProps> = ({ teams }) => (
-  <nav
-    style={{ display: "flex", flexDirection: "row", justifyContent: "center", margin: '2rem 0' }}
-  >
+  <nav className="choose-team">
     {teams.map(team => (
-      <Link
-        key={team.id}
-        to={`/${team.id}`}
-        style={{
-          display: "block",
-          padding: "2ex 2rem",
-          fontSize: "2rem",
-          color: "#fff"
-        }}
-      >
+      <Link key={team.id} to={`/${team.id}`} style={{ color: team.color }}>
         {team.name}
       </Link>
     ))}
