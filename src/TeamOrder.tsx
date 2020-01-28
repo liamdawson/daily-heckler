@@ -1,49 +1,32 @@
 import React from 'react';
-import Prando from 'prando';
-import moment from 'moment';
 
 interface IMember {
   name: string;
 }
 
 interface IProps {
-  name: string;
   members: Array<IMember>;
-  dateSeed: Date;
+  dayNumber: number;
 }
 
-const BASE_SEED = 1337;
+const reverseRing = (start: number, length: number): Array<number> => {
+  let maxIndex = length - 1;
 
-const getYearOrder = (members: Array<IMember>): Array<IMember> => {
-  let rng = new Prando(BASE_SEED);
-  let final: Array<IMember> = [];
+  // start: 3 => 3, 2, 1, 0
+  const indices = Array(start + 1).fill(start).map((s, ind) => s - ind);
 
-  while (final.length < 366) {
-    let copy = Object.assign([], members);
+  // start: 3, length: 6 => 5, 4
+  const wrapped = Array(maxIndex - start).fill(maxIndex).map((s, ind) => s - ind);
 
-    while (copy.length > 0) {
-      let nextIndex = rng.nextInt(0, copy.length - 1);
-
-      final.push(copy[nextIndex]);
-      copy.splice(nextIndex, 1);
-    }
-  }
-
-  console.log(final.map(m => m.name));
-
-  return final;
+  return indices.concat(wrapped);
 }
 
-export const TeamOrder: React.FC<IProps> = ({ name, members, dateSeed }) => {
-  let distance = moment(dateSeed).dayOfYear() - 1;
-  let order = getYearOrder(members);
+export const TeamOrder: React.FC<IProps> = ({ members, dayNumber }) => {
+  let offset = Math.floor(dayNumber) % members.length;
 
-  return <section>
-    <header>{name}</header>
-    <ul>
-      <li>{order[distance].name}</li>
-    </ul>
-  </section>
+  return (<ul>
+    {reverseRing(offset, members.length).map(index => <li key={index}>{members[index].name}</li>)}
+  </ul>);
 };
 
 export default TeamOrder;
