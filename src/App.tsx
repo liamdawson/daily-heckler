@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Teams } from './teams';
-import TeamOrder from './TeamOrder';
-import TeamHeader from './TeamHeader';
+import Team from './Team';
 import TeamSelector from './TeamSelector';
 import moment from 'moment';
 
@@ -19,11 +18,8 @@ const App: React.FC = () => {
         onSelectedTeamIndexChanged={setSelectedTeamIndex}
         onSelectedDateChanged={setSelectedDate} />
 
-      <TeamHeader
-        team={Teams[selectedTeamIndex]} />
-
-      <TeamOrder
-        members={Teams[selectedTeamIndex].members}
+      <Team
+        team={Teams[selectedTeamIndex]}
         dayNumber={moment(selectedDate).dayOfYear()} />
     </div>
   );

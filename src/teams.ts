@@ -1,6 +1,7 @@
 export const Teams = [
   {
     name: "Neutron",
+    color: "#c377e0",
     members: [
       { name: "Karen" },
       { name: "Kieran" },
@@ -10,6 +11,7 @@ export const Teams = [
   },
   {
     name: "Proton",
+    color: "#ff78cb",
     members: [
       { name: "Damien" },
       { name: "Glenn" },
