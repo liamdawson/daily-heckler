@@ -50,3 +50,16 @@ nav.choose-team a {
   font-size: 2rem;
   color: #fff;
 }
+
+footer.site-footer {
+  padding-top: 2rem;
+  font-size: 1.25rem;
+  font: 1.25rem source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-weight: bold;
+}
+
+footer.site-footer a {
+  color: #11ff00;
+  text-decoration: none;
+  text-transform: uppercase;
+}

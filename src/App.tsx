@@ -22,6 +22,10 @@ const App: React.FC = () => {
 
         <TeamNav
           teams={Teams} />
+
+        <footer className="site-footer" role="banner">
+          <a href="https://github.com/liamdawson/daily-heckler">Hack the Source?</a>
+        </footer>
       </Router>
     </div>
   );
