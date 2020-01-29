@@ -1,65 +1,17 @@
-input, select {
-  display: block;
-  font-size: inherit;
-  font-family: inherit;
-  min-width: 20em;
-  margin: 1ex auto;
-}
-
-h1 {
-  font-size: 5rem;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  transform: rotate(-2deg);
-  text-shadow:
-    0 0 16px rgba(255, 255, 255, 0.3),
-    0 0 32px rgba(212, 0, 142, 0.4),
-    0 0 64px rgba(212, 0, 142, 0.6),
-    0 0 128px rgba(212, 0, 142, 0.8);
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  font-size: 2rem;
-  text-transform: uppercase;
-}
-
-li {
-  padding-bottom: 1ex;
-  font-weight: bold;
-}
-
-ul li:first-child {
-  font-size: 2.5rem;
-  transform: rotate(-2deg);
-  padding-bottom: 2ex;
-}
-
-nav.choose-team {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 2rem 0;
-}
-
-nav.choose-team a {
-  display: block;
-  padding: 2ex 1em;
-  font-size: 2rem;
-  color: #fff;
+div.App {
+  padding: 0.5ex 2em;
 }
 
 footer.site-footer {
   padding-top: 2rem;
   font-size: 1.25rem;
-  font: 1.25rem source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font: 1.25rem source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
   font-weight: bold;
 }
 
 footer.site-footer a {
-  color: #11ff00;
+  color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
 }

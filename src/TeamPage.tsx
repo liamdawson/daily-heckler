@@ -1,7 +1,7 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { Team } from './teams';
-import { TeamHeader, TeamOrder } from './components';
+import React from "react";
+import { useParams } from "react-router-dom";
+import { Team } from "./teams";
+import { HazeBackground, TeamHeader, TeamOrder } from "./components";
 
 interface IProps {
   teams: Array<Team>;
@@ -13,17 +13,23 @@ export const TeamPage: React.FC<IProps> = ({ teams, dayNumber }) => {
 
   const team = teams.find(t => t.id === teamId);
 
-  if(team) {
-    return (<div style={{color: team.color}}>
-      <TeamHeader
-        team={team} />
-      <TeamOrder
-        dayNumber={dayNumber}
-        members={team.members} />
-    </div>);
-  } else {
-    return (<></>);
+  let content = <></>;
+
+  if (team) {
+    content = (
+      <div style={{ color: "var(--team-color)" }}>
+        <HazeBackground />
+        <TeamHeader team={team} />
+        <TeamOrder dayNumber={dayNumber} members={team.members} />
+      </div>
+    );
   }
+
+  return (
+    <div style={{ ["--team-color" as any]: (team && team.color) || "#00ffaa" }}>
+      {content}
+    </div>
+  );
 };
 
 export default TeamPage;

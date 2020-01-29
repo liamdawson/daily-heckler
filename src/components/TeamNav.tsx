@@ -1,4 +1,5 @@
-import React from "react";
+import React, { CSSProperties } from "react";
+import "./TeamNav.css";
 import { Team } from "../teams";
 import { Link } from "react-router-dom";
 
@@ -7,9 +8,13 @@ interface IProps {
 }
 
 export const TeamNav: React.FC<IProps> = ({ teams }) => (
-  <nav className="choose-team">
+  <nav className="TeamNav">
     {teams.map(team => (
-      <Link key={team.id} to={`/${team.id}`} style={{ color: team.color }}>
+      <Link
+        key={team.id}
+        to={`/${team.id}`}
+        style={{ "--team-color": team.color } as CSSProperties}
+      >
         {team.name}
       </Link>
     ))}

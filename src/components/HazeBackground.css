@@ -1,0 +1,65 @@
+div.HazeBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: #100020;
+  z-index: -1;
+}
+
+div.HazeBackground div.Layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+div.HazeBackground div.Layer1 {
+  opacity: 0.15;
+  background: var(--team-color);
+}
+
+div.HazeBackground div.Layer2 {
+  opacity: 0.05;
+  background: linear-gradient(
+    34deg,
+    rgba(255, 255, 255, 1) 0%,
+    var(--team-color) 17%,
+    var(--team-color) 62%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+div.HazeBackground div.Layer3 {
+  opacity: 0.025;
+  background: linear-gradient(
+    90deg,
+    "#fff" 0%,
+    var(--team-color) 20%,
+    "#000" 40%,
+    var(--team-color) 60%,
+    "#fff" 80%,
+    var(--team-color) 100%
+  );
+}
+
+div.HazeBackground div.Layer4 {
+  opacity: 0.05;
+  background: linear-gradient(45deg, "#fff", var(--team-color), "#000");
+}
+
+div.HazeBackground div.Layer4 {
+  opacity: 0.2;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0)
+  );
+}

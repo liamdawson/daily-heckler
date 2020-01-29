@@ -1,0 +1,22 @@
+ul.TeamOrder {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ul.TeamOrder li {
+  display: block;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+ul.TeamOrder li:first-child {
+  letter-spacing: 0.03em;
+  font-size: 3rem;
+  padding-bottom: 1ex;
+  text-transform: uppercase;
+}
