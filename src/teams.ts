@@ -1,5 +1,6 @@
 export interface TeamMember {
   name: string;
+  away?: boolean;
 }
 
 export interface Team {
@@ -18,7 +19,8 @@ export const Teams: Array<Team> = [
       { name: "Karen" },
       { name: "Kieran" },
       { name: "Liam" },
-      { name: "Mac" }
+      { name: "Mac", away: true },
+      { name: "Shervin" },
     ]
   },
   {
@@ -29,7 +31,7 @@ export const Teams: Array<Team> = [
       { name: "Damien" },
       { name: "Glenn" },
       { name: "Melissa" },
-      { name: "Usama" }
+      { name: "Usama" },
     ]
   }
 ];

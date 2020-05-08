@@ -16,11 +16,13 @@ export const TeamPage: React.FC<IProps> = ({ teams, dayNumber }) => {
   let content = <></>;
 
   if (team) {
+    const presentMembers = team.members.filter(member => !member.away);
+
     content = (
       <div style={{ color: "var(--team-color)" }}>
         <HazeBackground />
         <TeamHeader team={team} />
-        <TeamOrder dayNumber={dayNumber} members={team.members} />
+        <TeamOrder dayNumber={dayNumber} members={presentMembers} />
       </div>
     );
   }
