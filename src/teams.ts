@@ -19,7 +19,7 @@ export const Teams: Array<Team> = [
       { name: "Karen" },
       { name: "Kieran" },
       { name: "Liam" },
-      { name: "Mac", away: true },
+      { name: "Mac" },
       { name: "Shervin" },
     ]
   },
