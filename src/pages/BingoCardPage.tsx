@@ -3,17 +3,6 @@ import "./BingoCardPage.css";
 
 interface IProps { }
 
-const entries = [
-  "Lots of meetings",
-  "Reviewed PRs",
-  "Forgot to move the working agreement",
-  "What did I do yesterday?",
-  "Forgot to unmute",
-  "Need PR reviews",
-  'Stunned silence after "When did we last do this?"',
-  "Someone's cat is visible"
-];
-
 function sample<T>(src: Array<T>, count: number): Array<T> {
   let extracted: Array<T> = [];
 
@@ -25,8 +14,19 @@ function sample<T>(src: Array<T>, count: number): Array<T> {
   return extracted;
 }
 
-export const BingoCardPage: React.FC<IProps> = () => {
-  const rows: Array<Array<string>> = [];
+function generateRows(): Array<Array<string>> {
+  const entries = [
+    "Lots of meetings",
+    "Reviewed PRs",
+    "Forgot to move the working agreement",
+    "What did I do yesterday?",
+    "Forgot to unmute",
+    "Need PR reviews",
+    'Stunned silence after "When did we last do this?"',
+    "Someone's cat is visible"
+  ];
+
+  const rows = [];
 
   for(let i = 0; i < 3; i++) {
     if(i === 1) {
@@ -36,8 +36,16 @@ export const BingoCardPage: React.FC<IProps> = () => {
     }
   }
 
+  return rows;
+}
+
+export const BingoCardPage: React.FC<IProps> = () => {
+  const rows = generateRows();
+
   return (<table className="BingoCard">
-    {rows.map(row => <tr>{row.map(e => <td>{e}</td>)}</tr>)}
+    <tbody>
+      {rows.map((row, i) => <tr key={`row-${i}`}>{row.map((e, j) => <td key={`row-${i}-cell-${j}`}>{e}</td>)}</tr>)}
+    </tbody>
   </table>);
 };
 
