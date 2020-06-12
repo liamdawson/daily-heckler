@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { Team } from "./teams";
-import { HazeBackground, TeamHeader, TeamOrder } from "./components";
+import { Team } from "../teams";
+import { HazeBackground, TeamHeader, TeamOrder } from "../components";
 
 interface IProps {
   teams: Array<Team>;

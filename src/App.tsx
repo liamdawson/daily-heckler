@@ -1,12 +1,13 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import moment from "moment";
 import React, { useState } from "react";
 
 import { TeamNav } from "./components";
 import { Teams } from "./teams";
 import AppSettings from "./settings";
-import LandingRedirectPage from "./LandingRedirectPage";
-import TeamPage from "./TeamPage";
+import LandingRedirectPage from "./pages/LandingRedirectPage";
+import TeamPage from "./pages/TeamPage";
+import BingoCardPage from "./pages/BingoCardPage";
 
 import "./App.css";
 
@@ -19,11 +20,14 @@ const App: React.FC = () => {
       <div className="App">
         <Router>
           <Switch>
-            <Route path="/:teamId">
+            <Route path="/teams/:teamId">
               <TeamPage
                 teams={Teams}
                 dayNumber={moment(selectedDate).dayOfYear()}
               />
+            </Route>
+            <Route path="/bingo">
+              <BingoCardPage />
             </Route>
             <Route path="/">
               <LandingRedirectPage
@@ -35,7 +39,8 @@ const App: React.FC = () => {
           <TeamNav teams={Teams} appSettings={appSettings} />
 
           <footer className="site-footer" role="banner">
-            <a href="https://github.com/liamdawson/daily-heckler">GitHub</a>
+            <a href="https://github.com/liamdawson/daily-heckler">GitHub</a>{' | '}
+            <Link to="/bingo">Bingo!</Link>
           </footer>
         </Router>
       </div>

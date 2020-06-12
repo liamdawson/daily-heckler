@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Team } from "./teams";
-import { randomTitle } from "./titles";
-import { Entry } from "./components";
-import AppSettings from "./settings";
+import { Team } from "../teams";
+import { randomTitle } from "../titles";
+import { Entry } from "../components";
+import AppSettings from "../settings";
 
 import "./LandingRedirectPage.css";
 

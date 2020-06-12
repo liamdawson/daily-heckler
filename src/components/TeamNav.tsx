@@ -14,7 +14,7 @@ export const TeamNav: React.FC<IProps> = ({ teams, appSettings }) => (
     {teams.map(team => (
       <Link
         key={team.id}
-        to={`/${team.id}`}
+        to={`/teams/${team.id}`}
         style={{ "--team-color": team.color } as CSSProperties}
         onClick={() => appSettings.lastTeam = team.id}
       >
