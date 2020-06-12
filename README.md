@@ -26,13 +26,31 @@ I haven't added tests. Maybe one day?
 
 ## Configuration
 
-### src/teams.ts
+### src/teams.json
 
-```
+#### Minimal
 
+```json
+{
+  "teams": {
+    "my-team": {
+      "name": "My Team",
+      "color": "#c377e0",
+      "members": [
+        {
+          "name": "Bob"
+        },
+        {
+          "name": "Petunia"
+        }
+      ]
+    }
+  }
+
+}
 ```
 
 ## Deploying
 
-Personally, I deploy this to Netlify. The default `netlify.toml` should work as
-a new Netlify site out-of-the-box.
+Personally, I deploy this to Netlify. The default `netlify.toml` should nearly work as
+a new Netlify site out-of-the-box. You will need to set a `TEAMS_JSON_URL` env variable pointing to a suitable `teams.json` to pull in at build time. I host mine on a private GitHub gist.

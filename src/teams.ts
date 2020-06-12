@@ -1,37 +1,9 @@
-export interface TeamMember {
-  name: string;
-  away?: boolean;
-}
+import { TeamMember, Team, TeamsFile } from "./team";
+import teamsFileJson from "./teams.json";
 
-export interface Team {
-  id: string;
-  name: string;
-  color: string;
-  members: Array<TeamMember>;
-}
+const teamsFile = teamsFileJson as TeamsFile;
+console.log(teamsFile);
 
-export const Teams: Array<Team> = [
-  {
-    id: "neutron",
-    name: "Neutron",
-    color: "#c377e0",
-    members: [
-      { name: "Karen" },
-      { name: "Kieran" },
-      { name: "Liam" },
-      { name: "Mac", away: true },
-      { name: "Shervin" },
-    ]
-  },
-  {
-    id: "proton",
-    name: "Proton",
-    color: "#ff78cb",
-    members: [
-      { name: "Damien" },
-      { name: "Glenn" },
-      { name: "Melissa" },
-      { name: "Usama" },
-    ]
-  }
-];
+const teamIds = Object.keys(teamsFile['teams']);
+export const Teams: Array<Team> = teamIds.map((id) => ({id, ...teamsFile['teams'][id]}));
+export type { Team, TeamMember };

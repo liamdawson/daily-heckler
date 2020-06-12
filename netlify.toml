@@ -1,3 +1,3 @@
 [build]
-command = "yarn build"
+command = "curl -o src/teams.json -fsSL $TEAMS_JSON_URL  && yarn build"
 publish = "build/"
