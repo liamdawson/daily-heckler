@@ -13,3 +13,9 @@ table.BingoCard td {
   height: 8em;
   padding: 1em;
 }
+
+table.BingoCard td.selected {
+  opacity: 0.5;
+  background-color: rgba(96, 0, 192, 0.5);
+  text-decoration: line-through;
+}

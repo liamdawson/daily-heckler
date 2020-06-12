@@ -12,7 +12,7 @@ import BingoCardPage from "./pages/BingoCardPage";
 import "./App.css";
 
 const App: React.FC = () => {
-  let [selectedDate, setSelectedDate] = useState(new Date());
+  let [selectedDate] = useState(new Date());
   const appSettings = new AppSettings(localStorage);
 
   return (

@@ -1,12 +1,16 @@
 import React from "react";
 import "./BingoCardPage.css";
+import { useState } from "react";
 
-interface IProps { }
+interface IProps {}
+interface IState {
+  selected: Array<string>;
+}
 
 function sample<T>(src: Array<T>, count: number): Array<T> {
   let extracted: Array<T> = [];
 
-  for(let i = 0; i < count; i++) {
+  for (let i = 0; i < count; i++) {
     const pick = Math.random() * (src.length - 1);
     extracted = [...extracted, ...src.splice(pick, 1)];
   }
@@ -23,13 +27,13 @@ function generateRows(): Array<Array<string>> {
     "Forgot to unmute",
     "Need PR reviews",
     'Stunned silence after "When did we last do this?"',
-    "Someone's cat is visible"
+    "Someone's cat is visible",
   ];
 
   const rows = [];
 
-  for(let i = 0; i < 3; i++) {
-    if(i === 1) {
+  for (let i = 0; i < 3; i++) {
+    if (i === 1) {
       rows.push([...sample(entries, 1), "FREE SPACE", ...sample(entries, 1)]);
     } else {
       rows.push(sample(entries, 3));
@@ -39,14 +43,46 @@ function generateRows(): Array<Array<string>> {
   return rows;
 }
 
-export const BingoCardPage: React.FC<IProps> = () => {
-  const rows = generateRows();
+function toggleSelected(selections: Array<string>, key: string): Array<string> {
+  const newSelections = [...selections];
+  const indexOf = newSelections.indexOf(key);
 
-  return (<table className="BingoCard">
-    <tbody>
-      {rows.map((row, i) => <tr key={`row-${i}`}>{row.map((e, j) => <td key={`row-${i}-cell-${j}`}>{e}</td>)}</tr>)}
-    </tbody>
-  </table>);
+  if (indexOf === -1) {
+    newSelections.push(key);
+  } else {
+    newSelections.splice(indexOf, 1);
+  }
+
+  return newSelections;
+}
+
+export const BingoCardPage: React.FC<IProps> = () => {
+  const [rows] = useState(generateRows());
+  const [selected, setSelected] = useState([] as Array<string>);
+
+  return (
+    <table className="BingoCard">
+      <tbody>
+        {rows.map((row, i) => (
+          <tr key={`row-${i}`}>
+            {row.map((e, j) => (
+              <td
+                className={
+                  selected.includes(`row-${i}-cell-${j}`) ? "selected" : ""
+                }
+                key={`row-${i}-cell-${j}`}
+                onClick={() => setSelected(
+                  toggleSelected(selected, `row-${i}-cell-${j}`)
+                )}
+              >
+                {e}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
 };
 
 export default BingoCardPage;
