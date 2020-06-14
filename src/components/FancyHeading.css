@@ -7,20 +7,4 @@ h1.FancyHeading {
   text-shadow: 0 0 16px rgba(0, 0, 0, 0.6), 2px 2px 2px var(--fancy-heading-color),
     4px 4px 2px var(--fancy-heading-color), 0 0 128px var(--fancy-heading-color);
   margin: 2ex 0 2ex;
-  animation: both ease-in-out FancyHeadingExpand 5s infinite;
-}
-
-@keyframes FancyHeadingExpand {
-  0% {
-    transform: rotate(-3deg) scale(1, 1);
-    letter-spacing: 0.25rem;
-  }
-  50% {
-    transform: rotate(-2.75deg) scale(1.0025, 1.0025);
-    letter-spacing: 0.3rem;
-  }
-  100% {
-    transform: rotate(-3deg) scale(1, 1);
-    letter-spacing: 0.25rem;
-  }
 }
